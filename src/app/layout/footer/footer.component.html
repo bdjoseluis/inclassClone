@@ -1,0 +1,61 @@
+<footer class="bg-neutral-900 text-white">
+
+  <!-- Top grid -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 md:px-16 py-16 border-b border-white/10">
+
+    <!-- Brand -->
+    <div>
+      <p class="mb-4 text-xl font-bold tracking-[0.4em] uppercase">{{ brand.name }}</p>
+      <p class="text-sm font-light leading-relaxed text-white/50 max-w-xs whitespace-pre-line">{{ brand.address }}</p>
+      <div class="mt-5 space-y-1">
+        <a [href]="'tel:' + brand.phone" class="block text-sm text-white/60 hover:text-white transition-colors">{{ brand.phone }}</a>
+        <a [href]="'mailto:' + brand.email" class="block text-sm text-white/60 hover:text-white transition-colors">{{ brand.email }}</a>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div>
+      <p class="mb-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-white/30">Navegación</p>
+      <ul class="space-y-2">
+        @for (link of navLinks; track link.label) {
+          <li>
+            <a [routerLink]="link.href" class="text-sm font-light text-white/60 hover:text-white transition-colors">
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <!-- Social -->
+    <div>
+      <p class="mb-4 text-[10px] font-semibold uppercase tracking-[0.3em] text-white/30">Síguenos</p>
+      <ul class="space-y-2">
+        @for (s of social; track s.name) {
+          <li>
+            <a [href]="s.href" target="_blank" rel="noopener"
+              class="text-sm font-light text-white/60 hover:text-white transition-colors inline-flex items-center gap-2">
+              {{ s.name }}
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="flex flex-col md:flex-row items-center justify-between gap-4 px-8 md:px-16 py-6">
+    <p class="text-xs text-white/25">© {{ year }} {{ brand.name }}. All rights reserved.</p>
+    <div class="flex flex-wrap gap-5 justify-center">
+      @for (item of legal; track item.label) {
+        <a [routerLink]="item.href" class="text-xs text-white/25 hover:text-white/60 transition-colors">
+          {{ item.label }}
+        </a>
+      }
+    </div>
+  </div>
+
+</footer>

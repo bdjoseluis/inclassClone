@@ -1,0 +1,50 @@
+<!-- Page header -->
+<div class="pt-32 pb-10 px-8 md:px-16 bg-white border-b border-neutral-100">
+  <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-2">INCLASS</p>
+  <h1 class="font-serif text-5xl font-light text-neutral-900">Colecciones</h1>
+</div>
+
+<!-- Filter bar -->
+<div class="sticky top-[72px] z-30 bg-white border-b border-neutral-100 px-8 md:px-16 overflow-x-auto">
+  <div class="flex gap-0 min-w-max">
+    @for (f of filters; track f.value) {
+      <button
+        (click)="setFilter(f.value)"
+        class="px-4 py-4 text-[11px] uppercase tracking-widest font-medium transition-colors whitespace-nowrap border-b-2 -mb-px"
+        [class.border-neutral-900]="activeFilter() === f.value"
+        [class.text-neutral-900]="activeFilter() === f.value"
+        [class.border-transparent]="activeFilter() !== f.value"
+        [class.text-neutral-400]="activeFilter() !== f.value"
+        [class.hover:text-neutral-700]="activeFilter() !== f.value">
+        {{ f.label }}
+        @if (f.value === 'new') {
+          <span class="ml-1.5 bg-neutral-900 text-white text-[9px] px-1.5 py-0.5 rounded-sm">NEW</span>
+        }
+      </button>
+    }
+  </div>
+</div>
+
+<!-- Grid -->
+<div class="px-8 md:px-16 py-12 bg-white">
+  <p class="text-xs text-neutral-400 mb-8 uppercase tracking-widest">{{ filtered().length }} productos</p>
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+    @for (product of filtered(); track product.id) {
+      <a [routerLink]="['/collections', product.slug]" class="group block">
+        <div class="relative overflow-hidden bg-neutral-50 aspect-square mb-3">
+          <img [src]="product.image" [alt]="product.name"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy">
+          @if (product.new) {
+            <span class="absolute top-3 left-3 bg-neutral-900 text-white text-[9px] uppercase tracking-widest px-2 py-1">
+              Nuevo
+            </span>
+          }
+        </div>
+        <p class="text-[11px] uppercase tracking-[0.2em] text-neutral-900 font-medium group-hover:text-neutral-500 transition-colors">
+          {{ product.name }}
+        </p>
+      </a>
+    }
+  </div>
+</div>

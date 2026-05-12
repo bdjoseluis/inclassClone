@@ -1,0 +1,312 @@
+@if (collection(); as col) { @if (product(); as prod) {
+
+<!-- Breadcrumb -->
+<div class="pt-24 pb-0 px-8 md:px-16 bg-white border-b border-neutral-100">
+  <nav class="flex items-center gap-2 text-[10px] uppercase tracking-widest text-neutral-400 py-4">
+    <a routerLink="/" class="hover:text-neutral-700 transition-colors">Inicio</a>
+    <span>/</span>
+    <a routerLink="/collections" class="hover:text-neutral-700 transition-colors">Colecciones</a>
+    <span>/</span>
+    <a [routerLink]="['/collections', col.slug]" class="hover:text-neutral-700 transition-colors">{{ col.name }}</a>
+    <span>/</span>
+    <span class="text-neutral-700">{{ prod.reference }}</span>
+  </nav>
+</div>
+
+<!-- Main product layout -->
+<div class="grid lg:grid-cols-2 min-h-[75vh]">
+
+  <!-- LEFT: Image gallery -->
+  <div class="relative bg-neutral-50">
+    <!-- Main image -->
+    <div class="sticky top-20 aspect-square overflow-hidden">
+      <img [src]="images[activeImage()]" [alt]="prod.name"
+        class="w-full h-full object-cover transition-opacity duration-300">
+
+      <!-- Thumbnails strip -->
+      @if (images.length > 1) {
+        <div class="absolute bottom-4 left-4 flex gap-2">
+          @for (img of images; track img; let i = $index) {
+            <button (click)="activeImage.set(i)"
+              class="w-12 h-12 overflow-hidden border-2 transition-all"
+              [class.border-neutral-900]="activeImage() === i"
+              [class.border-transparent]="activeImage() !== i">
+              <img [src]="img" [alt]="'vista ' + i" class="w-full h-full object-cover">
+            </button>
+          }
+        </div>
+      }
+    </div>
+  </div>
+
+  <!-- RIGHT: Product info -->
+  <div class="px-8 md:px-12 py-12 flex flex-col">
+
+    <!-- Collection link -->
+    <a [routerLink]="['/collections', col.slug]"
+      class="text-[10px] uppercase tracking-[0.35em] text-neutral-400 hover:text-neutral-700 transition-colors mb-4 inline-block">
+      ← {{ col.name }}
+    </a>
+
+    <!-- Reference -->
+    <p class="text-[11px] uppercase tracking-widest text-neutral-400 mb-2">Ref. {{ prod.reference }}</p>
+
+    <!-- Product name -->
+    <h1 class="font-serif text-4xl md:text-5xl font-light text-neutral-900 leading-tight mb-2">
+      {{ col.name }}
+    </h1>
+    <p class="text-base text-neutral-500 mb-8">{{ prod.name }}</p>
+
+    <!-- Dimensions -->
+    <div class="flex items-center gap-6 py-5 border-y border-neutral-100 mb-8">
+      <div>
+        <p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-0.5">Dimensiones</p>
+        <p class="text-sm font-medium text-neutral-900">{{ prod.dimensions }}</p>
+      </div>
+      @if (prod.weight) {
+        <div class="w-px h-8 bg-neutral-200"></div>
+        <div>
+          <p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-0.5">Peso</p>
+          <p class="text-sm font-medium text-neutral-900">{{ prod.weight }}</p>
+        </div>
+      }
+      <div class="w-px h-8 bg-neutral-200"></div>
+      <div>
+        <p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-0.5">Diseñador</p>
+        <p class="text-sm font-medium text-neutral-900">{{ col.designer }}</p>
+      </div>
+    </div>
+
+    <!-- Stock indicator -->
+    <div class="flex items-center gap-3 mb-8 p-4 bg-neutral-50 border border-neutral-100">
+      <span class="w-2.5 h-2.5 rounded-full shrink-0 animate-pulse" [class]="stockDotClass()"></span>
+      <div>
+        <p class="text-sm font-medium" [class]="stockClass()">{{ stockLabel() }}</p>
+        <p class="text-xs text-neutral-400">{{ prod.stock }} unidades disponibles</p>
+      </div>
+    </div>
+
+    <!-- Finishes preview -->
+    <div class="mb-8">
+      <p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-3">Acabados disponibles</p>
+      <div class="flex flex-wrap gap-2">
+        @for (f of col.finishes; track f) {
+          <span class="text-[11px] border border-neutral-200 px-3 py-1 text-neutral-600 cursor-pointer hover:border-neutral-500 transition-colors">
+            {{ f }}
+          </span>
+        }
+      </div>
+    </div>
+
+    <!-- CTA buttons -->
+    <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+      <button (click)="openReserve()"
+        class="flex-1 bg-neutral-900 text-white py-4 text-xs font-semibold uppercase tracking-[0.25em] hover:bg-neutral-700 transition-colors duration-300 flex items-center justify-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+        </svg>
+        Reservar unidades
+      </button>
+      <a href="mailto:hello@inclass.es?subject=Consulta {{ prod.reference }}"
+        class="flex-1 border border-neutral-900 text-neutral-900 py-4 text-xs font-semibold uppercase tracking-[0.25em] hover:bg-neutral-900 hover:text-white transition-colors duration-300 flex items-center justify-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        Consultar
+      </a>
+    </div>
+
+    @if (!isLoggedIn()) {
+      <p class="mt-3 text-[11px] text-neutral-400 text-center">
+        <a routerLink="/login" class="underline hover:text-neutral-700 transition-colors">Inicia sesión</a> para poder reservar
+      </p>
+    }
+
+    <!-- Materials -->
+    <div class="mt-10 pt-8 border-t border-neutral-100">
+      <p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-3">Materiales</p>
+      <ul class="space-y-1">
+        @for (m of col.materials; track m) {
+          <li class="text-sm text-neutral-600 flex items-center gap-2">
+            <span class="w-1 h-1 bg-neutral-300 rounded-full"></span>{{ m }}
+          </li>
+        }
+      </ul>
+    </div>
+
+    <!-- Spaces -->
+    <div class="mt-6">
+      <p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-3">Espacios</p>
+      <div class="flex flex-wrap gap-2">
+        @for (s of col.spaces; track s) {
+          <span class="text-[11px] text-neutral-500 border border-neutral-100 px-2.5 py-1">{{ s }}</span>
+        }
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Other variants -->
+@if (otherProducts().length > 0) {
+  <section class="px-8 md:px-16 py-16 border-t border-neutral-100 bg-neutral-50">
+    <p class="text-[10px] uppercase tracking-[0.3em] text-neutral-400 mb-2">Misma colección</p>
+    <h2 class="font-serif text-3xl font-light text-neutral-900 mb-10">Otras variantes</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-5">
+      @for (p of otherProducts(); track p.slug) {
+        <a [routerLink]="['/collections', col.slug, p.slug]"
+          class="group block border border-neutral-200 bg-white hover:border-neutral-400 transition-colors">
+          <div class="overflow-hidden aspect-square bg-neutral-50">
+            <img [src]="p.image" [alt]="p.name"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <div class="p-3">
+            <p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-0.5">{{ p.reference }}</p>
+            <p class="text-xs font-medium text-neutral-800 leading-tight">{{ p.name }}</p>
+            <div class="flex items-center gap-1 mt-1.5">
+              <span class="w-1.5 h-1.5 rounded-full"
+                [class.bg-emerald-500]="p.stock > 10"
+                [class.bg-amber-400]="p.stock > 3 && p.stock <= 10"
+                [class.bg-red-500]="p.stock <= 3"></span>
+              <span class="text-[10px] text-neutral-400">{{ p.stock }} ud.</span>
+            </div>
+          </div>
+        </a>
+      }
+    </div>
+  </section>
+}
+
+<!-- Related collections -->
+@if (related().length > 0) {
+  <section class="px-8 md:px-16 py-16 bg-white">
+    <p class="text-[10px] uppercase tracking-[0.3em] text-neutral-400 mb-2">Puede interesarte</p>
+    <h2 class="font-serif text-3xl font-light text-neutral-900 mb-10">Colecciones relacionadas</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      @for (rel of related(); track rel.slug) {
+        <a [routerLink]="['/collections', rel.slug]" class="group block">
+          <div class="relative overflow-hidden aspect-[4/3] mb-4 bg-neutral-50">
+            <img [src]="rel.thumbnail" [alt]="rel.name"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          </div>
+          <p class="text-[10px] uppercase tracking-widest text-neutral-400 mb-0.5">{{ rel.designer }}</p>
+          <p class="text-sm font-semibold uppercase tracking-widest text-neutral-900 group-hover:text-neutral-500 transition-colors">
+            {{ rel.name }}
+          </p>
+        </a>
+      }
+    </div>
+  </section>
+}
+
+} }
+
+<!-- ===== RESERVE MODAL ===== -->
+@if (reserveOpen()) {
+  <div class="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" (click)="closeReserve()"></div>
+
+    <!-- Panel -->
+    <div class="relative bg-white w-full max-w-md shadow-2xl z-10">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between px-8 py-6 border-b border-neutral-100">
+        <h2 class="font-serif text-2xl font-light text-neutral-900">Reservar</h2>
+        <button (click)="closeReserve()" class="text-neutral-400 hover:text-neutral-900 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      @if (!reserveSuccess()) {
+        <div class="px-8 py-6">
+
+          <!-- Product summary -->
+          <div class="flex gap-4 mb-6 p-4 bg-neutral-50">
+            <img [src]="product()!.image" [alt]="product()!.name" class="w-16 h-16 object-cover shrink-0">
+            <div>
+              <p class="text-[10px] uppercase tracking-widest text-neutral-400">{{ collection()!.name }}</p>
+              <p class="text-sm font-medium text-neutral-900">{{ product()!.name }}</p>
+              <p class="text-xs text-neutral-500">Ref. {{ product()!.reference }}</p>
+            </div>
+          </div>
+
+          <!-- Stock display -->
+          <div class="flex items-center gap-2 mb-6">
+            <span class="w-2 h-2 rounded-full shrink-0" [class]="stockDotClass()"></span>
+            <span class="text-sm" [class]="stockClass()">{{ stockLabel() }}</span>
+            <span class="text-sm text-neutral-400">— {{ product()!.stock }} unidades disponibles</span>
+          </div>
+
+          <!-- Units picker -->
+          <div class="mb-6">
+            <label class="block text-[10px] uppercase tracking-widest text-neutral-400 mb-3">Unidades a reservar</label>
+            <div class="flex items-center gap-0 border border-neutral-200 w-fit">
+              <button (click)="decUnits()"
+                class="w-10 h-10 flex items-center justify-center text-neutral-600 hover:bg-neutral-50 transition-colors text-lg font-light">
+                −
+              </button>
+              <input [(ngModel)]="reserveUnits"
+                type="number" min="1" [max]="product()!.stock"
+                class="w-14 h-10 text-center text-sm font-medium text-neutral-900 border-x border-neutral-200 focus:outline-none bg-white">
+              <button (click)="incUnits()"
+                class="w-10 h-10 flex items-center justify-center text-neutral-600 hover:bg-neutral-50 transition-colors text-lg font-light">
+                +
+              </button>
+            </div>
+          </div>
+
+          <!-- User info -->
+          @if (user(); as u) {
+            <div class="mb-6 p-3 bg-neutral-50 flex items-center gap-3">
+              <div class="w-8 h-8 bg-neutral-200 rounded-full flex items-center justify-center text-xs font-semibold text-neutral-600 uppercase shrink-0">
+                {{ u.name.charAt(0) }}
+              </div>
+              <div>
+                <p class="text-xs font-medium text-neutral-900">{{ u.name }}</p>
+                <p class="text-[11px] text-neutral-400">{{ u.email }}</p>
+              </div>
+            </div>
+          }
+
+          @if (reserveError()) {
+            <p class="text-sm text-red-500 mb-4">{{ reserveError() }}</p>
+          }
+
+          <!-- Confirm -->
+          <button (click)="confirmReserve()"
+            class="w-full bg-neutral-900 text-white py-4 text-xs font-semibold uppercase tracking-[0.25em] hover:bg-neutral-700 transition-colors">
+            Confirmar reserva
+          </button>
+          <p class="mt-3 text-[10px] text-neutral-400 text-center leading-relaxed">
+            La reserva no implica compromiso de compra. Nuestro equipo se pondrá en contacto contigo.
+          </p>
+        </div>
+
+      } @else {
+        <!-- Success state -->
+        <div class="px-8 py-12 text-center">
+          <div class="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <h3 class="font-serif text-2xl font-light text-neutral-900 mb-2">Reserva confirmada</h3>
+          <p class="text-sm text-neutral-500 mb-1">
+            <span class="font-medium text-neutral-700">{{ reserveUnits() }} ud.</span> de {{ product()!.reference }}
+          </p>
+          <p class="text-xs text-neutral-400 mb-8">
+            Nos pondremos en contacto contigo para confirmar los detalles.
+          </p>
+          <button (click)="closeReserve()"
+            class="border border-neutral-900 px-8 py-3 text-xs font-semibold uppercase tracking-widest text-neutral-900 hover:bg-neutral-900 hover:text-white transition-colors">
+            Cerrar
+          </button>
+        </div>
+      }
+
+    </div>
+  </div>
+}

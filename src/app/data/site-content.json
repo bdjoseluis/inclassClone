@@ -1,0 +1,386 @@
+{
+  "brand": {
+    "name": "INCLASS",
+    "tagline": "Functionality, transversal use, and beauty",
+    "email": "hello@inclass.es",
+    "phone": "+34 96 540 52 30",
+    "address": "Ctra. Estación s/n – Pol. I-4 P5 Ap. Correos 466\n03330 Crevillente – Alicante – Spain"
+  },
+  "nav": {
+    "links": [
+      { "label": "Productos", "href": "/collections" },
+      { "label": "Sostenibilidad", "href": "/sustainability" },
+      { "label": "Diseñadores", "href": "/designers" },
+      { "label": "Nosotros", "href": "/about" },
+      { "label": "Professional", "href": "/professional" },
+      { "label": "Contacto", "href": "/contact" }
+    ],
+    "languages": ["EN", "ES", "FR", "DE", "IT"]
+  },
+  "hero": {
+    "slides": [
+      {
+        "id": 1,
+        "label": "NUEVA COLECCIÓN",
+        "title": "Floe",
+        "designer": "Pearson Lloyd",
+        "cta": "VER COLECCIÓN",
+        "image": "assets/images/SL_FLOE_2026.jpg",
+        "href": "/collections/floe"
+      },
+      {
+        "id": 2,
+        "label": "COMING SOON",
+        "title": "Ondes",
+        "designer": "Jonathan Prestwich",
+        "cta": "DESCUBRIR",
+        "image": "assets/images/SL_ONDES_01.jpg",
+        "href": "/collections/ondes"
+      },
+      {
+        "id": 3,
+        "label": "STUDIO INCLASS",
+        "title": "Binar 55",
+        "designer": "Studio INCLASS",
+        "cta": "EXPLORAR",
+        "image": "assets/images/SL_BINAR55_02.jpg",
+        "href": "/collections/binar-55"
+      },
+      {
+        "id": 4,
+        "label": "iF DESIGN AWARD 2026",
+        "title": "Oswell",
+        "designer": "Nacar Design",
+        "cta": "VER COLECCIÓN",
+        "image": "assets/images/SL_OSWELL_2026.jpg",
+        "href": "/collections/oswell"
+      },
+      {
+        "id": 5,
+        "label": "COMING SOON",
+        "title": "Onem",
+        "designer": "Studio INCLASS",
+        "cta": "DESCUBRIR",
+        "image": "assets/images/SL_ONEM_01_.jpg",
+        "href": "/collections/onem"
+      }
+    ]
+  },
+  "news": [
+    {
+      "id": 1,
+      "title": "Salone del Mobile Milano 2026",
+      "subtitle": "April 21–26 · Hall 18 Stand B25",
+      "image": "assets/images/Milan_26.jpg",
+      "tag": "FERIA"
+    },
+    {
+      "id": 2,
+      "title": "OSWELL — iF Design Award 2026 Winner",
+      "subtitle": "Premio internacional al diseño industrial",
+      "image": "assets/images/HN_IF_OSWELL.jpg",
+      "tag": "PREMIO"
+    },
+    {
+      "id": 3,
+      "title": "Workspace Expo 2026",
+      "subtitle": "Paris · Espacio de trabajo del futuro",
+      "image": "assets/images/HN_WorkSpace26.jpg",
+      "tag": "FERIA"
+    },
+    {
+      "id": 4,
+      "title": "Kern — Nueva colección",
+      "subtitle": "Diseño versátil para espacios profesionales",
+      "image": "assets/images/HN_KERN.png",
+      "tag": "NUEVO"
+    },
+    {
+      "id": 5,
+      "title": "Exa — Silla de trabajo",
+      "subtitle": "Ergonomía y diseño en perfecta armonía",
+      "image": "assets/images/HN_EXA.png",
+      "tag": "NUEVO"
+    },
+    {
+      "id": 6,
+      "title": "Orus — Silla ejecutiva",
+      "subtitle": "Confort profesional sin concesiones",
+      "image": "assets/images/HN_ORUS.png",
+      "tag": "NUEVO"
+    }
+  ],
+  "featuredProduct": {
+    "name": "ESITT",
+    "tagline": "Silla de trabajo",
+    "description": "ESITT combina el confort de las sillas profesionales con un diseño refinado y la integración ergonómica más avanzada.",
+    "image": "assets/images/ST_ESITT_02.jpg",
+    "href": "/collections/esitt",
+    "award": "iF Design Award 2024"
+  },
+  "homeCategories": [
+    {
+      "id": 1,
+      "name": "Sillas & Sillones",
+      "image": "assets/images/CHAIRS.png",
+      "href": "/collections?tipo=sillas-y-sillones"
+    },
+    {
+      "id": 2,
+      "name": "Butacas & Sofás Lounge",
+      "image": "assets/images/ARMCHAIRS_2024.jpg",
+      "href": "/collections?tipo=butacas-y-sofas"
+    },
+    {
+      "id": 3,
+      "name": "Mesas",
+      "image": "assets/images/TABLES.png",
+      "href": "/collections?tipo=mesas"
+    },
+    {
+      "id": 4,
+      "name": "Sillas de Trabajo",
+      "image": "assets/images/EXECUTIVES_2024.jpg",
+      "href": "/collections?tipo=sillas-de-trabajo"
+    }
+  ],
+  "spaces": [
+    { "label": "Residencial", "href": "/spaces?context=home" },
+    { "label": "Espacios de trabajo", "href": "/spaces?context=workspaces" },
+    { "label": "Reunión", "href": "/spaces?context=meeting" },
+    { "label": "Horeca", "href": "/spaces?context=hospitality" },
+    { "label": "Clínicas", "href": "/spaces?context=healthcare" },
+    { "label": "Zonas de espera", "href": "/spaces?context=waiting" },
+    { "label": "Auditorio", "href": "/spaces?context=auditorium" }
+  ],
+  "catalogues": [
+    {
+      "id": 1,
+      "name": "Catálogo General",
+      "image": "assets/images/HO_QuickGuide.jpg",
+      "file": "https://inclass.es/wp-content/uploads/2021/02/INCLASS_The-Collection.pdf"
+    },
+    {
+      "id": 2,
+      "name": "Libro de Acabados",
+      "image": "assets/images/TB_LAMINAR.jpg",
+      "file": "https://inclass.es/wp-content/uploads/2024/03/INCLASS_LibroDeAcabados.pdf"
+    },
+    {
+      "id": 3,
+      "name": "Quick Guide",
+      "image": "assets/images/01-1.jpg",
+      "file": "https://inclass.es/wp-content/uploads/2024/08/INCLASS_QuickGuide_ESP.pdf"
+    }
+  ],
+  "collections": [
+    { "id": 1, "name": "LEA OUTDOOR", "image": "assets/images/TB_O_LEA.jpg", "slug": "lea-outdoor", "tipo": "outdoor", "new": false },
+    { "id": 2, "name": "OSWELL OUTDOOR", "image": "assets/images/TB_O_OSWELL.jpg", "slug": "oswell-outdoor", "tipo": "outdoor", "new": false },
+    { "id": 3, "name": "TAIA OUTDOOR", "image": "assets/images/TB_O_TAIA.jpg", "slug": "taia-outdoor", "tipo": "outdoor", "new": false },
+    { "id": 4, "name": "VARYA OUTDOOR", "image": "assets/images/TB_O_VARYA.jpg", "slug": "varya-outdoor", "tipo": "outdoor", "new": false },
+    { "id": 5, "name": "BARLIS OUTDOOR", "image": "assets/images/TB_O_BARLIS.jpg", "slug": "barlis-outdoor", "tipo": "outdoor", "new": false },
+    { "id": 6, "name": "ESSENS OUTDOOR", "image": "assets/images/TB_O_ESSENS.jpg", "slug": "essens-outdoor", "tipo": "outdoor", "new": false },
+    { "id": 7, "name": "FLOE OUTDOOR", "image": "assets/images/TB_O_FLOE.jpg", "slug": "floe-outdoor", "tipo": "outdoor", "new": true },
+    { "id": 8, "name": "LAMINAR OUTDOOR", "image": "assets/images/TB_O_LAMINAR.jpg", "slug": "laminar-outdoor", "tipo": "outdoor", "new": false },
+    { "id": 9, "name": "OSWELL", "image": "assets/images/TB_OSWELL.jpg", "slug": "oswell", "tipo": "sillas-y-sillones", "new": true },
+    { "id": 10, "name": "FLOE", "image": "assets/images/TB_FLOE.jpg", "slug": "floe", "tipo": "sillas-y-sillones", "new": true },
+    { "id": 11, "name": "BARLIS", "image": "assets/images/TB_BARLIS.jpg", "slug": "barlis", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 12, "name": "KERN MESAS", "image": "assets/images/TB_KERNmesas.jpg", "slug": "kern-tables", "tipo": "mesas", "new": true },
+    { "id": 13, "name": "KERN", "image": "assets/images/TB_KERN.jpg", "slug": "kern", "tipo": "sillas-de-trabajo", "new": true },
+    { "id": 14, "name": "EXA", "image": "assets/images/TB_EXA.jpg", "slug": "exa", "tipo": "sillas-de-trabajo", "new": true },
+    { "id": 15, "name": "ZENPRO", "image": "assets/images/TB_ZENPRO.jpg", "slug": "zenpro", "tipo": "sillas-de-trabajo", "new": true },
+    { "id": 16, "name": "ORUS", "image": "assets/images/TB_ORUS.jpg", "slug": "orus", "tipo": "sillas-de-trabajo", "new": true },
+    { "id": 17, "name": "WABAO", "image": "assets/images/TB_WABAO.png", "slug": "wabao", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 18, "name": "BINAR 60", "image": "assets/images/TB_BINAR-60-1.jpg", "slug": "binar-60", "tipo": "taburetes", "new": false },
+    { "id": 19, "name": "BINAR EXECUTIVE", "image": "assets/images/TB_BINARexecutive.jpg", "slug": "binar-executive", "tipo": "sillas-de-trabajo", "new": false },
+    { "id": 20, "name": "KORI", "image": "assets/images/TB_KORI.jpg", "slug": "kori", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 21, "name": "ESSENS OCCASIONAL", "image": "assets/images/TB_ESSENSoccasional.png", "slug": "essens-occasional", "tipo": "mesas-auxiliares", "new": false },
+    { "id": 22, "name": "REVER", "image": "assets/images/TB_REVER.jpg", "slug": "rever", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 23, "name": "LEA", "image": "assets/images/TB_LEA.jpg", "slug": "lea", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 24, "name": "DUNAS LOUNGE", "image": "assets/images/TB_DUNASlounge.jpg", "slug": "dunas-lounge", "tipo": "butacas-y-sofas", "new": false },
+    { "id": 25, "name": "DUNAS XL", "image": "assets/images/TB_DUNASxl.jpg", "slug": "dunas-xl", "tipo": "butacas-y-sofas", "new": false },
+    { "id": 26, "name": "DUNAS XS", "image": "assets/images/TB_DUNASxs.jpg", "slug": "dunas-xs", "tipo": "butacas-y-sofas", "new": false },
+    { "id": 27, "name": "ARUM", "image": "assets/images/TB_ARUM.jpg", "slug": "arum", "tipo": "butacas-y-sofas", "new": false },
+    { "id": 28, "name": "WUDI", "image": "assets/images/TB_WUDI.jpg", "slug": "wudi", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 29, "name": "ESSENS", "image": "assets/images/TB_ESSENS.jpg", "slug": "essens", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 30, "name": "ESCALAS", "image": "assets/images/TB_ESCALAS.jpg", "slug": "escalas", "tipo": "taburetes", "new": false },
+    { "id": 31, "name": "VARYA WOOD", "image": "assets/images/TB_VARYA-WOOD.jpg", "slug": "varya-wood", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 32, "name": "VARYA TAPIZ", "image": "assets/images/TB_VARYA-TAPIZ.jpg", "slug": "varya-tapiz", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 33, "name": "VARYA XL", "image": "assets/images/TB_VARYAxl.jpg", "slug": "varya-xl", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 34, "name": "VARYA", "image": "assets/images/TB_VARYA.jpg", "slug": "varya", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 35, "name": "LEX", "image": "assets/images/TB_LEX.jpg", "slug": "lex", "tipo": "mesas", "new": false },
+    { "id": 36, "name": "PLANIA MESA", "image": "assets/images/TB_PLANIAtable.jpg", "slug": "plania-table", "tipo": "mesas", "new": false },
+    { "id": 37, "name": "PLANIA BANCO", "image": "assets/images/TB_PLANIAbench.jpg", "slug": "plania-bench", "tipo": "bancos", "new": false },
+    { "id": 38, "name": "TAIA", "image": "assets/images/TB_TAIA.jpg", "slug": "taia", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 39, "name": "LAMINAR", "image": "assets/images/TB_LAMINAR.jpg", "slug": "laminar", "tipo": "bancos", "new": false },
+    { "id": 40, "name": "ARYN WOOD", "image": "assets/images/TB_ARYNwood.png", "slug": "aryn-wood", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 41, "name": "ARYN", "image": "assets/images/TB_ARYN.jpg", "slug": "aryn", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 42, "name": "ARYN MAX", "image": "assets/images/TB_ARYNmax.jpg", "slug": "aryn-max", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 43, "name": "ENTROPY", "image": "assets/images/TB_ENTROPY.jpg", "slug": "entropy", "tipo": "mesas", "new": false },
+    { "id": 44, "name": "LIN TAPIZ", "image": "assets/images/TB_LINtapiz.jpg", "slug": "lin-tapiz", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 45, "name": "LIN WOOD", "image": "assets/images/TB_LINwood.jpg", "slug": "lin-wood", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 46, "name": "LAPSE", "image": "assets/images/TB_LAPSE.jpg", "slug": "lapse", "tipo": "mesas-auxiliares", "new": false },
+    { "id": 47, "name": "MARCUS", "image": "assets/images/TB_MARCUS.jpg", "slug": "marcus", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 48, "name": "TETRIS", "image": "assets/images/TB_TETRIS-2.jpg", "slug": "tetris", "tipo": "mesas", "new": false },
+    { "id": 49, "name": "PAU", "image": "assets/images/TB_PAU.jpg", "slug": "pau", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 50, "name": "XAIL", "image": "assets/images/TB_XAIL.png", "slug": "xail", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 51, "name": "ARC", "image": "assets/images/TB_ARC_.jpg", "slug": "arc", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 52, "name": "ALTEA", "image": "assets/images/TB_ALTEA.jpg", "slug": "altea", "tipo": "taburetes", "new": false },
+    { "id": 53, "name": "ITEK PRO", "image": "assets/images/TB_ITEKpro.jpg", "slug": "itek-pro", "tipo": "sillas-de-trabajo", "new": false },
+    { "id": 54, "name": "ESITT", "image": "assets/images/TB_ESSIT.jpg", "slug": "esitt", "tipo": "sillas-de-trabajo", "new": false },
+    { "id": 55, "name": "UNNIA", "image": "assets/images/TB_UNNIA.jpg", "slug": "unnia", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 56, "name": "UNNIA TAPIZ", "image": "assets/images/TB_UNNIA-TAPIZ.jpg", "slug": "unnia-tapiz", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 57, "name": "NUME", "image": "assets/images/TB_NUME.jpg", "slug": "nume", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 58, "name": "STIKS", "image": "assets/images/TB_STIKS.jpg", "slug": "stiks", "tipo": "taburetes", "new": false },
+    { "id": 59, "name": "NIM", "image": "assets/images/TB_NIM.jpg", "slug": "nim", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 60, "name": "SUI", "image": "assets/images/TB_SUI.jpg", "slug": "sui", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 61, "name": "LAN", "image": "assets/images/TB_LAN.jpg", "slug": "lan", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 62, "name": "ANN", "image": "assets/images/TB_ANN.jpg", "slug": "ann", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 63, "name": "ELIX", "image": "assets/images/TB_ELIX.jpg", "slug": "elix", "tipo": "mesas-auxiliares", "new": false },
+    { "id": 64, "name": "TAO", "image": "assets/images/TB_TAO.jpg", "slug": "tao", "tipo": "sillas-y-sillones", "new": false },
+    { "id": 65, "name": "FLAT", "image": "assets/images/TB_FLAT.jpg", "slug": "flat", "tipo": "sillas-y-sillones", "new": false }
+  ],
+  "collectionFilters": [
+    { "value": "", "label": "Todos" },
+    { "value": "new", "label": "Nuevo" },
+    { "value": "sillas-y-sillones", "label": "Sillas y sillones" },
+    { "value": "taburetes", "label": "Taburetes" },
+    { "value": "butacas-y-sofas", "label": "Butacas y sofás" },
+    { "value": "sillas-de-trabajo", "label": "Sillas de trabajo" },
+    { "value": "mesas", "label": "Mesas" },
+    { "value": "bancos", "label": "Bancos" },
+    { "value": "mesas-auxiliares", "label": "Mesas auxiliares" },
+    { "value": "outdoor", "label": "Outdoor" }
+  ],
+  "sustainability": {
+    "hero": "assets/images/Captura-de-pantalla-2023-01-27-a-las-13.54.22-Copy-6.jpg",
+    "certBadge": "assets/images/Sostenibilidad-certificada.png",
+    "sections": [
+      {
+        "id": 1,
+        "title": "Diseños sostenibles",
+        "body": "Creemos que el diseño de calidad incorpora por definición principios de sostenibilidad, respeto al medioambiente y prioridad a la salud humana.",
+        "image": "assets/images/Captura-de-pantalla-2023-01-27-a-las-13.54.22-Copy-2.jpg",
+        "icon": "assets/images/Group-76.png"
+      },
+      {
+        "id": 2,
+        "title": "Sostenibilidad certificada",
+        "body": "Todos nuestros productos se fabrican localmente y están certificados por Bureau Veritas según los estándares ISO14001 e ISO 9001.",
+        "image": "assets/images/Captura-de-pantalla-2023-01-27-a-las-13.54.22-Copy-3.jpg",
+        "icon": "assets/images/Group-83.png"
+      },
+      {
+        "id": 3,
+        "title": "Comprometidos con la salud",
+        "body": "Más de 400 referencias cuentan con certificación GREENGUARD Gold, compatible con los estándares LEED, BREEAM y FITWEL.",
+        "image": "assets/images/Captura-de-pantalla-2023-01-27-a-las-13.54.22-Copy-4.jpg",
+        "icon": "assets/images/Group-49.png"
+      },
+      {
+        "id": 4,
+        "title": "Madera sostenible",
+        "body": "La madera utilizada en nuestros productos proviene de bosques sostenibles. Contamos con la certificación FSC® (C194846).",
+        "image": "assets/images/Captura-de-pantalla-2023-01-27-a-las-13.54.22-Copy-5.jpg",
+        "icon": "assets/images/Group-15.png"
+      },
+      {
+        "id": 5,
+        "title": "Huella de carbono",
+        "body": "Clasificamos emisiones directas e indirectas según el protocolo GHE, con el objetivo de alcanzar el carbono neutro.",
+        "image": "assets/images/SS_Huella-de-carbono.jpg",
+        "icon": null
+      }
+    ]
+  },
+  "designers": [
+    { "id": 1, "name": "Nacar Design", "origin": "España", "image": "assets/images/DP_Nacar-Design.jpg" },
+    { "id": 2, "name": "Pearson Lloyd", "origin": "Reino Unido", "image": "assets/images/DP_PearsonLloyd.jpg" },
+    { "id": 3, "name": "Simon Pengelly", "origin": "Reino Unido", "image": "assets/images/SIMON-PENGELLY.png" },
+    { "id": 4, "name": "Jonathan Prestwich", "origin": "Reino Unido", "image": "assets/images/JONATHAN-PRESWITCH.png" },
+    { "id": 5, "name": "Mario Ruiz", "origin": "España", "image": "assets/images/MARIO-RUIZ.png" },
+    { "id": 6, "name": "Francesc Rifé", "origin": "España", "image": "assets/images/Francesc-Rife.png" },
+    { "id": 7, "name": "Christophe Pillet", "origin": "Francia", "image": "assets/images/CHRISTOPHE-PILLET.png" },
+    { "id": 8, "name": "Florent Coirier", "origin": "Francia", "image": "assets/images/FLORENT-COIRIER.png" },
+    { "id": 9, "name": "Jorge Pensi Design Studio", "origin": "España", "image": "assets/images/JORGE-PENSI.png" },
+    { "id": 10, "name": "Perezochando", "origin": "España", "image": "assets/images/PEREZOCHANDO.png" },
+    { "id": 11, "name": "Cristian Gori", "origin": "Italia", "image": "assets/images/Cristian_Gori.jpg" },
+    { "id": 12, "name": "Carlos Tíscar", "origin": "España", "image": "assets/images/CARLOS-TISCAR.png" },
+    { "id": 13, "name": "Alegre Design", "origin": "España", "image": "assets/images/ALEGRE-DESIGN.png" },
+    { "id": 14, "name": "Yonoh", "origin": "España", "image": "assets/images/YONOH.png" },
+    { "id": 15, "name": "Studio INCLASS", "origin": "España", "image": "assets/images/STUDIO-INCLASS-1.png" }
+  ],
+  "about": {
+    "heroImage": "assets/images/Foto-fabrica.jpg",
+    "headline": "Diseños atemporales para interiores modernos",
+    "tagline": "Timeless designs",
+    "stats": [
+      { "value": "+60", "label": "países" },
+      { "value": "5", "label": "años de garantía" },
+      { "value": "ISO 9001", "label": "desde 2005" },
+      { "value": "FSC®", "label": "C194846" }
+    ],
+    "sections": [
+      {
+        "title": "Anywhere in the world",
+        "body": "Presente en más de 60 países, INCLASS diseña y fabrica muebles versátiles para uso en espacios tanto públicos como privados.",
+        "image": "assets/images/Distribucion.jpg"
+      },
+      {
+        "title": "Fabricado en España",
+        "body": "Nuestros muebles se fabrican localmente en Crevillente, Alicante, garantizando la máxima calidad en cada proceso.",
+        "image": "assets/images/INCLASS-2022-9-8743-copia.jpg"
+      },
+      {
+        "title": "Calidad certificada",
+        "body": "Certificados por Bureau Veritas bajo ISO 9001 desde 2005 e ISO 14001, nuestros productos superan los más estrictos estándares internacionales.",
+        "image": "assets/images/INCLASS-3-2022-10-9432_INT.jpg"
+      }
+    ]
+  },
+  "contact": {
+    "heroImage": "assets/images/INCLASS-4-2022-10-9939-1.jpg",
+    "offices": [
+      {
+        "name": "Oficina principal",
+        "address": "Ctra. Estación s/n – Pol. I-4 P5\n03330 Crevillente – Alicante – Spain",
+        "phone": "+34 96 540 52 30",
+        "email": "hello@inclass.es",
+        "maps": "https://goo.gl/maps/cKr8uXWHoqRsffHH9"
+      },
+      {
+        "name": "Showroom Londres",
+        "address": "110 Golden Lane\nEC1Y 0TG London",
+        "phone": "+44 7366 564449",
+        "contact": "Mel Hughes"
+      },
+      {
+        "name": "Showroom Barcelona",
+        "address": "Rambla de Catalunya, 43 principal, 1ª\nL'Eixample 08007 Barcelona",
+        "phone": "+34 607 671 824",
+        "contact": "Carlos Sienra"
+      }
+    ],
+    "departments": [
+      { "label": "General", "email": "hello@inclass.es" },
+      { "label": "Prensa", "email": "press@inclass.es" },
+      { "label": "Empleo", "email": "join@inclass.es" }
+    ],
+    "formTopics": ["Consulta general", "Comercial", "Prensa", "Empleo"]
+  },
+  "footer": {
+    "social": [
+      { "name": "Instagram", "href": "https://www.instagram.com/inclass_design/" },
+      { "name": "YouTube", "href": "https://www.youtube.com/user/INCLASSdesign" },
+      { "name": "Vimeo", "href": "https://vimeo.com/inclass" },
+      { "name": "Pinterest", "href": "https://www.pinterest.es/INCLASS/" },
+      { "name": "Architonic", "href": "https://www.architonic.com/es/microsite/inclass/3103169" }
+    ],
+    "legal": [
+      { "label": "Política de privacidad", "href": "/privacy-policy" },
+      { "label": "Política de cookies", "href": "/cookies-policy" },
+      { "label": "Aviso legal", "href": "/legal-notice" },
+      { "label": "Política de calidad", "href": "/quality-policy" }
+    ]
+  }
+}

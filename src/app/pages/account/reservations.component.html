@@ -1,0 +1,110 @@
+<div class="min-h-screen bg-neutral-50 pt-24">
+  <div class="max-w-4xl mx-auto px-8 py-12">
+
+    <!-- Header -->
+    <div class="flex items-start justify-between mb-12">
+      <div>
+        <p class="text-[10px] uppercase tracking-[0.3em] text-neutral-400 mb-2">Mi cuenta</p>
+        <h1 class="font-serif text-4xl font-light text-neutral-900">Mis Reservas</h1>
+        @if (user(); as u) {
+          <p class="text-sm text-neutral-500 mt-2">{{ u.name }} · {{ u.email }}</p>
+        }
+      </div>
+      <div class="flex items-center gap-4">
+        <a routerLink="/" class="text-[11px] uppercase tracking-widest text-neutral-400 hover:text-neutral-700 transition-colors">
+          ← Inicio
+        </a>
+        <button (click)="logout()"
+          class="text-[11px] uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors border border-neutral-200 px-4 py-2">
+          Cerrar sesión
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats band -->
+    <div class="grid grid-cols-3 gap-px bg-neutral-200 mb-10">
+      <div class="bg-white px-6 py-5">
+        <p class="font-serif text-3xl font-light text-neutral-900">{{ reservations().length }}</p>
+        <p class="text-[10px] uppercase tracking-widest text-neutral-400 mt-1">Total reservas</p>
+      </div>
+      <div class="bg-white px-6 py-5">
+        <p class="font-serif text-3xl font-light text-amber-600">{{ pending() }}</p>
+        <p class="text-[10px] uppercase tracking-widest text-neutral-400 mt-1">Pendientes</p>
+      </div>
+      <div class="bg-white px-6 py-5">
+        <p class="font-serif text-3xl font-light text-neutral-900">{{ totalUnits() }}</p>
+        <p class="text-[10px] uppercase tracking-widest text-neutral-400 mt-1">Unidades totales</p>
+      </div>
+    </div>
+
+    <!-- Reservations list -->
+    @if (reservations().length === 0) {
+      <div class="bg-white border border-neutral-100 px-10 py-16 text-center">
+        <div class="w-12 h-px bg-neutral-200 mx-auto mb-6"></div>
+        <p class="text-neutral-400 text-sm mb-6">No tienes reservas todavía</p>
+        <a routerLink="/collections"
+          class="inline-flex items-center gap-2 border border-neutral-900 px-8 py-3 text-xs font-semibold uppercase tracking-widest text-neutral-900 hover:bg-neutral-900 hover:text-white transition-colors">
+          Ver colecciones
+        </a>
+      </div>
+    } @else {
+      <div class="space-y-3">
+        @for (r of reservations(); track r.id) {
+          <div class="bg-white border border-neutral-100 p-6 flex flex-col md:flex-row md:items-center gap-5"
+            [class.opacity-60]="r.status === 'cancelled'">
+
+            <!-- Product info -->
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-3 mb-1">
+                <p class="text-[10px] uppercase tracking-widest text-neutral-400">{{ r.collectionSlug }}</p>
+                <span class="text-neutral-200">·</span>
+                <p class="text-[10px] uppercase tracking-widest text-neutral-400">Ref. {{ r.reference }}</p>
+              </div>
+              <p class="text-sm font-medium text-neutral-900 truncate">{{ r.productName }}</p>
+              <p class="text-xs text-neutral-400 mt-0.5">{{ formatDate(r.date) }}</p>
+            </div>
+
+            <!-- Units -->
+            <div class="shrink-0 text-center px-5 border-l border-neutral-100 hidden md:block">
+              <p class="font-serif text-2xl font-light text-neutral-900">{{ r.units }}</p>
+              <p class="text-[10px] uppercase tracking-widest text-neutral-400">unidades</p>
+            </div>
+
+            <!-- Status -->
+            <div class="shrink-0 flex items-center gap-4">
+              <span class="border text-[10px] uppercase tracking-widest px-3 py-1.5 font-medium"
+                [class]="statusClass(r.status)">
+                {{ statusLabel(r.status) }}
+              </span>
+
+              @if (r.status === 'pending') {
+                <button (click)="cancel(r.id)"
+                  class="text-[10px] uppercase tracking-widest text-neutral-400 hover:text-red-500 transition-colors">
+                  Cancelar
+                </button>
+              }
+
+              <a [routerLink]="['/collections', r.collectionSlug, r.productSlug]"
+                class="text-[10px] uppercase tracking-widest text-neutral-400 hover:text-neutral-900 transition-colors">
+                Ver →
+              </a>
+            </div>
+
+          </div>
+        }
+      </div>
+    }
+
+    <!-- Browse more -->
+    <div class="mt-10 text-center">
+      <a routerLink="/collections"
+        class="inline-flex items-center gap-3 text-xs uppercase tracking-widest text-neutral-500 hover:text-neutral-900 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+        Explorar más colecciones
+      </a>
+    </div>
+
+  </div>
+</div>

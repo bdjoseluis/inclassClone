@@ -1,0 +1,71 @@
+<!-- Hero -->
+<div class="relative h-[70vh] min-h-[480px] overflow-hidden">
+  <img [src]="data.heroImage" alt="INCLASS Fábrica"
+    class="w-full h-full object-cover">
+  <div class="absolute inset-0 bg-black/35 flex flex-col justify-end px-8 md:px-16 pb-16">
+    <p class="text-xs uppercase tracking-[0.3em] text-white/50 mb-3">Nosotros</p>
+    <h1 class="font-serif text-5xl md:text-7xl font-light text-white leading-none">{{ data.tagline }}</h1>
+  </div>
+</div>
+
+<!-- Headline -->
+<section class="px-8 md:px-16 py-20 max-w-3xl">
+  <p class="text-2xl md:text-3xl font-light leading-relaxed text-neutral-700">
+    {{ data.headline }}
+  </p>
+</section>
+
+<!-- Stats -->
+<section class="grid grid-cols-2 md:grid-cols-4 border-t border-b border-neutral-100">
+  @for (stat of data.stats; track stat.label) {
+    <div class="px-8 md:px-12 py-10 border-r border-neutral-100 last:border-r-0">
+      <p class="font-serif text-4xl font-light text-neutral-900 mb-2">{{ stat.value }}</p>
+      <p class="text-[11px] uppercase tracking-widest text-neutral-400">{{ stat.label }}</p>
+    </div>
+  }
+</section>
+
+<!-- Alternating sections -->
+@for (section of data.sections; track section.title; let odd = $odd) {
+  <section class="grid lg:grid-cols-2 min-h-[520px]" [class.lg:grid-flow-dense]="odd">
+    <div class="relative overflow-hidden" [class.lg:col-start-2]="odd">
+      <img [src]="section.image" [alt]="section.title"
+        class="w-full h-full object-cover min-h-[340px] lg:min-h-0">
+    </div>
+    <div class="flex flex-col justify-center px-10 md:px-16 py-16 bg-white" [class.lg:col-start-1]="odd">
+      <h2 class="font-serif text-4xl font-light text-neutral-900 mb-6">{{ section.title }}</h2>
+      <p class="text-neutral-600 leading-relaxed max-w-md text-base">{{ section.body }}</p>
+    </div>
+  </section>
+}
+
+<!-- Certifications band -->
+<section class="bg-neutral-50 px-8 md:px-16 py-16">
+  <p class="text-xs uppercase tracking-[0.3em] text-neutral-400 mb-10">Certificaciones</p>
+  <div class="flex flex-wrap gap-12 items-center">
+    <div class="text-center">
+      <p class="font-serif text-3xl font-light text-neutral-900">ISO 9001</p>
+      <p class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Desde 2005</p>
+    </div>
+    <div class="w-px h-12 bg-neutral-200 hidden md:block"></div>
+    <div class="text-center">
+      <p class="font-serif text-3xl font-light text-neutral-900">ISO 14001</p>
+      <p class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Medioambiente</p>
+    </div>
+    <div class="w-px h-12 bg-neutral-200 hidden md:block"></div>
+    <div class="text-center">
+      <p class="font-serif text-3xl font-light text-neutral-900">FSC®</p>
+      <p class="text-xs text-neutral-400 uppercase tracking-widest mt-1">C194846</p>
+    </div>
+    <div class="w-px h-12 bg-neutral-200 hidden md:block"></div>
+    <div class="text-center">
+      <p class="font-serif text-3xl font-light text-neutral-900">GREENGUARD</p>
+      <p class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Gold · +400 referencias</p>
+    </div>
+    <div class="w-px h-12 bg-neutral-200 hidden md:block"></div>
+    <div class="text-center">
+      <p class="font-serif text-3xl font-light text-neutral-900">5 años</p>
+      <p class="text-xs text-neutral-400 uppercase tracking-widest mt-1">Garantía estándar</p>
+    </div>
+  </div>
+</section>

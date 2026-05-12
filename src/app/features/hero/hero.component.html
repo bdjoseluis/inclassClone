@@ -1,0 +1,58 @@
+<section class="relative h-screen min-h-[600px] overflow-hidden bg-neutral-200">
+
+  <!-- Background images with crossfade -->
+  @for (slide of slides; track slide.id; let i = $index) {
+    <div
+      class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000"
+      [style.backgroundImage]="'url(' + slide.image + ')'"
+      [class.opacity-100]="i === activeIndex()"
+      [class.opacity-0]="i !== activeIndex()">
+    </div>
+  }
+
+  <!-- Gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-black/20"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex h-full flex-col justify-end pb-24 px-8 md:px-16 lg:px-20">
+    <p class="mb-3 text-[10px] font-semibold uppercase tracking-[0.35em] text-white/60">
+      {{ activeSlide().label }}
+    </p>
+    <h1 class="mb-2 font-serif text-7xl md:text-9xl font-light text-white leading-none">
+      {{ activeSlide().title }}
+    </h1>
+    <p class="mb-10 text-[11px] font-light tracking-[0.3em] text-white/50 uppercase">
+      Design — {{ activeSlide().designer }}
+    </p>
+    <a [routerLink]="activeSlide().href"
+      class="inline-flex w-fit items-center gap-3 border border-white/50 px-8 py-3.5 text-[11px] font-semibold uppercase tracking-[0.25em] text-white transition-all duration-300 hover:bg-white hover:text-neutral-900">
+      {{ activeSlide().cta }}
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Slide dots / lines -->
+  <div class="absolute bottom-8 right-8 md:right-16 z-10 flex items-center gap-2">
+    @for (slide of slides; track slide.id; let i = $index) {
+      <button
+        (click)="goTo(i)"
+        [attr.aria-label]="'Slide ' + (i + 1)"
+        class="h-px transition-all duration-500 bg-white"
+        [class.w-10]="i === activeIndex()"
+        [class.opacity-100]="i === activeIndex()"
+        [class.w-4]="i !== activeIndex()"
+        [class.opacity-30]="i !== activeIndex()">
+      </button>
+    }
+  </div>
+
+  <!-- Counter -->
+  <div class="absolute right-6 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
+    <span class="text-[10px] font-light text-white/40 [writing-mode:vertical-lr] tracking-widest">
+      0{{ activeIndex() + 1 }} / 0{{ slides.length }}
+    </span>
+  </div>
+
+</section>

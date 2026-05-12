@@ -1,0 +1,122 @@
+<div class="min-h-screen grid lg:grid-cols-2">
+
+  <!-- Left: image -->
+  <div class="hidden lg:block relative overflow-hidden">
+    <img src="assets/images/SL_FLOE_2026.jpg" alt="INCLASS"
+      class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-16">
+      <p class="text-xs uppercase tracking-[0.4em] text-white/50 mb-3">INCLASS</p>
+      <p class="font-serif text-4xl font-light text-white leading-tight">
+        Diseños atemporales<br>para espacios modernos
+      </p>
+    </div>
+  </div>
+
+  <!-- Right: form -->
+  <div class="flex flex-col justify-center px-8 md:px-20 py-16 bg-white">
+
+    <!-- Logo -->
+    <a routerLink="/" class="text-base font-bold tracking-[0.4em] uppercase text-neutral-900 mb-16 block">
+      INCLASS
+    </a>
+
+    <!-- Tab switcher -->
+    <div class="flex gap-0 mb-10 border-b border-neutral-100">
+      <button (click)="switchMode('login')"
+        class="pb-3 mr-8 text-sm font-medium uppercase tracking-widest transition-colors border-b-2 -mb-px"
+        [class.border-neutral-900]="mode() === 'login'"
+        [class.text-neutral-900]="mode() === 'login'"
+        [class.border-transparent]="mode() !== 'login'"
+        [class.text-neutral-400]="mode() !== 'login'">
+        Iniciar sesión
+      </button>
+      <button (click)="switchMode('register')"
+        class="pb-3 text-sm font-medium uppercase tracking-widest transition-colors border-b-2 -mb-px"
+        [class.border-neutral-900]="mode() === 'register'"
+        [class.text-neutral-900]="mode() === 'register'"
+        [class.border-transparent]="mode() !== 'register'"
+        [class.text-neutral-400]="mode() !== 'register'">
+        Crear cuenta
+      </button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    @if (mode() === 'login') {
+      <form (ngSubmit)="submitLogin()" #lf="ngForm" class="space-y-6">
+        <div>
+          <label class="block text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Email</label>
+          <input [(ngModel)]="loginForm.email" name="email" type="email" required
+            class="w-full border-b border-neutral-200 bg-transparent py-3 text-sm text-neutral-900 focus:outline-none focus:border-neutral-900 transition-colors placeholder:text-neutral-300"
+            placeholder="tu@email.com">
+        </div>
+        <div>
+          <label class="block text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Contraseña</label>
+          <input [(ngModel)]="loginForm.password" name="password" type="password" required
+            class="w-full border-b border-neutral-200 bg-transparent py-3 text-sm text-neutral-900 focus:outline-none focus:border-neutral-900 transition-colors placeholder:text-neutral-300"
+            placeholder="••••••••">
+        </div>
+
+        @if (error()) {
+          <p class="text-sm text-red-500">{{ error() }}</p>
+        }
+
+        <button type="submit" [disabled]="loading()"
+          class="w-full bg-neutral-900 text-white py-4 text-xs font-semibold uppercase tracking-[0.25em] hover:bg-neutral-700 transition-colors duration-300 disabled:opacity-50 mt-4 flex items-center justify-center gap-2">
+          @if (loading()) {
+            <span class="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+          }
+          Entrar
+        </button>
+
+        <p class="text-center text-xs text-neutral-400 mt-4">
+          Demo: <span class="text-neutral-600 font-medium">demo&#64;inclass.es</span> / <span class="text-neutral-600 font-medium">demo1234</span>
+        </p>
+      </form>
+    }
+
+    <!-- REGISTER FORM -->
+    @if (mode() === 'register') {
+      <form (ngSubmit)="submitRegister()" #rf="ngForm" class="space-y-5">
+        <div>
+          <label class="block text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Nombre completo</label>
+          <input [(ngModel)]="registerForm.name" name="name" required
+            class="w-full border-b border-neutral-200 bg-transparent py-3 text-sm text-neutral-900 focus:outline-none focus:border-neutral-900 transition-colors placeholder:text-neutral-300"
+            placeholder="Tu nombre">
+        </div>
+        <div>
+          <label class="block text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Email</label>
+          <input [(ngModel)]="registerForm.email" name="email" type="email" required
+            class="w-full border-b border-neutral-200 bg-transparent py-3 text-sm text-neutral-900 focus:outline-none focus:border-neutral-900 transition-colors placeholder:text-neutral-300"
+            placeholder="tu@email.com">
+        </div>
+        <div class="grid grid-cols-2 gap-5">
+          <div>
+            <label class="block text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Contraseña</label>
+            <input [(ngModel)]="registerForm.password" name="password" type="password" required
+              class="w-full border-b border-neutral-200 bg-transparent py-3 text-sm text-neutral-900 focus:outline-none focus:border-neutral-900 transition-colors placeholder:text-neutral-300"
+              placeholder="••••••••">
+          </div>
+          <div>
+            <label class="block text-[10px] uppercase tracking-widest text-neutral-400 mb-2">Confirmar</label>
+            <input [(ngModel)]="registerForm.confirm" name="confirm" type="password" required
+              class="w-full border-b border-neutral-200 bg-transparent py-3 text-sm text-neutral-900 focus:outline-none focus:border-neutral-900 transition-colors placeholder:text-neutral-300"
+              placeholder="••••••••">
+          </div>
+        </div>
+
+        @if (error()) {
+          <p class="text-sm text-red-500">{{ error() }}</p>
+        }
+
+        <button type="submit" [disabled]="loading()"
+          class="w-full bg-neutral-900 text-white py-4 text-xs font-semibold uppercase tracking-[0.25em] hover:bg-neutral-700 transition-colors duration-300 disabled:opacity-50 flex items-center justify-center gap-2">
+          @if (loading()) {
+            <span class="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
+          }
+          Crear cuenta
+        </button>
+      </form>
+    }
+
+  </div>
+</div>
